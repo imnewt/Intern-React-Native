@@ -218,8 +218,7 @@ export default class Task4 extends React.Component {
                 </View>
                 <TouchableOpacity   
                         style={styles.btnContainer} 
-                        onPress={() => 1===1
-                            // ? navigate('App', {id: this.validate().id}) 
+                        onPress={() => typeof(this.validate()) == 'object'
                             ? this._success(this.validate().id)
                             : this.validate()}>
                    <Text style={styles.loginText}>LOGIN</Text>
