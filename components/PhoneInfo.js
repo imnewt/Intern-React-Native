@@ -9,12 +9,16 @@ export default class PhoneInfo extends Component {
         super(props);
     }
 
+    static navigationOptions = {
+        title: 'Products',
+    };
+
     render() {
         const { data, handlePress } = this.props;
         return (
             <TouchableOpacity 
                 style={styles.container}
-                onPress={handlePress(data)}
+                onPress={() => handlePress(data)}
                 >
                 <View style={styles.imgContainer}>
                     <Image resizeMode="stretch" style={styles.phoneImg} source={data.img} />
@@ -48,14 +52,15 @@ const styles = StyleSheet.create({
     container: {
         flexDirection: "row",
         flex: 1,
-        padding: 10,
+        paddingVertical: 10,
+        paddingRight: 10,
         borderBottomWidth: 1,
         borderBottomColor: "#ddd",
-        backgroundColor: "#fff",
-        shadowColor: "#000",
-        shadowOpacity: 0.3,
-        shadowRadius: 10,
-        shadowOffset: { width: 0, height: 0}
+        // backgroundColor: "#fff",
+        // shadowColor: "#000",
+        // shadowOpacity: 0.3,
+        // shadowRadius: 10,
+        // shadowOffset: { width: 0, height: 0}
 
     },
     imgContainer: {
@@ -74,7 +79,7 @@ const styles = StyleSheet.create({
     },
     phoneName: {
         marginTop: 5,
-        fontSize: 16,
+        fontSize: 17,
         fontWeight: "700"
     },
     phonePriceContainer: {

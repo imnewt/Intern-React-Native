@@ -17,16 +17,20 @@ export default class ListProduct extends Component {
                     id: 1,
                     name: "Điện thoại VSmart Live (64GB/6GB)",
                     price: "3.299.000",
+                    oldPrice: "9.000.000",
                     discount: "58",
                     img: Vsmart,
+                    description: "Điện Thoại Vsmart Live với 3 camera đẳng cấp, cảm biến vân tay dưới màn hình cùng hiệu năng xuất sắc, Vsmart Live mang đến cho bạn cuộc sống phong cách và đầy bứt phá.",
                     comment: 241
                 },
                 {
                     id: 2,
                     name: "Điện thoại iPhone 11 Pro Max 64GB",
                     price: "31.490.000",
+                    oldPrice: "90.122.000",
                     discount: "7",
                     img: IPhone,
+                    description: "Điện thoại iPhone 11 Pro Max là phiên bản cao cấp nhất của iPhone năm nay. Sản phẩm có nhiều cải tiến nổi bật, hiệu năng, thiết kế mới đặc biệt ở phần mặt lưng và hệ thống camera.",
                     paySup: true,
                     comment: 63
                 },
@@ -34,8 +38,10 @@ export default class ListProduct extends Component {
                     id: 3,
                     name: "Điện thoại Samsung Galaxy M30s (64GB/4GB) ",
                     price: "5.490.000",
+                    oldPrice: "12.212.000",
                     discount: "21",
                     img: Samsung,
+                    description: "Samsung Galaxy M30s là chiếc smartphone đầu tiên của Samsung với dung lượng pin 6000mAh giúp bạn  tha hồ sử dụng điện thoại suốt cả ngày dài mà không lo bị gián đoạn vì hết pin.",
                     paySup: true,
                     comment: 69
                 },
@@ -43,8 +49,10 @@ export default class ListProduct extends Component {
                     id: 4,
                     name: "Điện thoại iPhone 11 Pro Max 64GB",
                     price: "31.490.000",
+                    oldPrice: "56.120.000",
                     discount: "7",
                     img: IPhone,
+                    description: "Điện thoại iPhone 11 Pro Max là phiên bản cao cấp nhất của iPhone năm nay. Sản phẩm có nhiều cải tiến nổi bật, hiệu năng, thiết kế mới đặc biệt ở phần mặt lưng và hệ thống camera.",
                     paySup: true,
                     comment: 63
                 },
@@ -52,8 +60,13 @@ export default class ListProduct extends Component {
         }
     }
 
-    handlePress = data => () => {
+    static navigationOptions = {
+        title: 'Products',
+    };
+    
+    handlePress = data => {
         const { navigate } = this.props.navigation;
+        
         navigate("PhoneDetail", {data: data})
     }
     
