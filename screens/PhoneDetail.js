@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text, Image, ScrollView, TouchableOpacity, StyleSheet, Button } from "react-native"
+import { View, Text, Image, ScrollView, StyleSheet, Button, TouchableOpacity, FlatList } from "react-native"
 
 import Tiki from "../images/tiki-now.png"
 import Star from "../images/star.png"
@@ -7,18 +7,70 @@ import Star from "../images/star.png"
 export default class PhoneDetail extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            //hasBorder: true
+        }
     }
 
     static navigationOptions = {
         title: 'Phone',
     }
 
-    render() {
+    _handlePress(img) {
+        // if (this.state.hasBorder) {
+        //     this.setState({
+        //         border: !border
+        //     })
+        // }
+        this.setState({
+            img: img,
+            //border: !border
+        })
+    }
+
+    componentDidMount  = () => {
         const { navigation } = this.props;
         const data = navigation.getParam("data");
+        this.setState({
+            img: data.listImg[0]
+        })
+    }
+
+    render() {
+       
+        const { navigation } = this.props;
+        const data = navigation.getParam("data");
+        const { img } = this.state;
         return (
             <ScrollView style={styles.container}>
-                <Image resizeMode="stretch" style={styles.phoneImg} source={data.img} />
+                <Image resizeMode="stretch" style={styles.phoneImg} source={img} />
+                {/* <View style={styles.chooseView}>
+                    <FlatList 
+                        horizontal={true}
+                        data={data.listImg}
+                        renderItem={({ item }) =>
+                                <TouchableOpacity
+                                    style={styles.smImgContainter}
+                                    onPress={() => this._handlePress(item)}
+                                >
+                                    <Image style={styles.smImg} source={item} />
+                                </TouchableOpacity>
+                            }
+                        keyExtractor={(item) => `${item}`}
+                    /> 
+                </View> */}
+                <View style={styles.chooseView}>
+                    {
+                        data.listImg.map((img,index) => 
+                            <TouchableOpacity
+                                key={index}
+                                style={[styles.smImgContainter, this.state.border && {borderWidth: 1, borderColor: "red"} ]}
+                                onPress={() => this._handlePress(img)}
+                            >
+                                <Image style={styles.smImg} source={img} />
+                            </TouchableOpacity>)
+                    }
+                </View>
                 <View style={styles.phoneInfo}>
                     <TouchableOpacity style={styles.colorPicker}>
                         <Text style={styles.colorStatus}>Màu: Chưa chọn</Text>
@@ -57,17 +109,33 @@ export default class PhoneDetail extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1
+        flex: 1,
+        marginLeft: 15,
+        marginRight: 15
     },
     phoneImg: {
         width: "100%",
         height: 500
     },
+    chooseView: {
+        flexDirection: "row",
+        flex: 1,
+        justifyContent: "space-between",
+    },
+    smImgContainter: {
+        // marginLeft: 15,
+        // marginRight: 15
+    },
+    smImg: {
+        width: 48,
+        height: 48
+    },
     phoneInfo: {
-        marginLeft: 15,
-        marginRight: 15
+        // marginLeft: 15,
+        // marginRight: 15
     },
     colorPicker: {
+        marginTop: 10,
         flexDirection: "row",
         borderWidth: 1,
         borderColor: "#eee",

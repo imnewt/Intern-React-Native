@@ -21,7 +21,7 @@ export default class PhoneInfo extends Component {
                 onPress={() => handlePress(data)}
                 >
                 <View style={styles.imgContainer}>
-                    <Image resizeMode="stretch" style={styles.phoneImg} source={data.img} />
+                    <Image resizeMode="stretch" style={styles.phoneImg} source={data.listImg[0]} />
                 </View>
                 <View style={styles.infoContainer}>
                     <Image resizeMode="stretch" style={styles.tikiNow} source={Tiki}/>
