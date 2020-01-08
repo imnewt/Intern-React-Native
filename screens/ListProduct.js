@@ -1,27 +1,31 @@
 import React, { Component } from 'react'
 import { View, StyleSheet } from "react-native"
-import { FlatList, ScrollView } from 'react-native-gesture-handler';
+import { FlatList, ScrollView } from 'react-native-gesture-handler'
 
-import SortBySelling from '../components/SortBySelling';
-import PhoneInfo from '../components/PhoneInfo';
+import ListProductHeader from "../components/ListProductHeader"
+import SortBySelling from '../components/SortBySelling'
+import DeliTo from "../components/DeliTo" 
+import PhoneInfo from '../components/PhoneInfo'
 
-import Vsmart from '../images/vsmart.jpg';
-import VsmartF from '../images/vsmart-front.jpg';
-import VsmartB from '../images/vsmart-behind.jpg';
-import VsmartS from '../images/vsmart-side.jpg';
-import VsmartLR from '../images/vsmart-lr.jpg';
+import Vsmart from '../images/vsmart.jpg'
+import VsmartF from '../images/vsmart-front.jpg'
+import VsmartB from '../images/vsmart-behind.jpg'
+import VsmartS from '../images/vsmart-side.jpg'
+import VsmartLR from '../images/vsmart-lr.jpg'
 
-import IPhone from '../images/iphone.jpg';
-import IPhoneF from '../images/iphone-front.jpg';
-import IPhoneB from '../images/iphone-behind.jpg';
-import IPhoneS from '../images/iphone-side.jpg';
-import IPhoneLR from '../images/iphone-lr.jpg';
+import IPhone from '../images/iphone.jpg'
+import IPhoneF from '../images/iphone-front.jpg'
+import IPhoneB from '../images/iphone-behind.jpg'
+import IPhoneS from '../images/iphone-side.jpg'
+import IPhoneLR from '../images/iphone-lr.jpg'
 
-import Samsung from '../images/samsung.jpg';
-import SamsungF from '../images/samsung-front.jpg';
-import SamsungB from '../images/samsung-behind.jpg';
-import SamsungS from '../images/samsung-side.jpg';
-import SamsungLR from '../images/samsung-lr.jpg';
+import Samsung from '../images/samsung.jpg'
+import SamsungF from '../images/samsung-front.jpg'
+import SamsungB from '../images/samsung-behind.jpg'
+import SamsungS from '../images/samsung-side.jpg'
+import SamsungLR from '../images/samsung-lr.jpg'
+
+import Cart from "../images/shopping-cart.png"
 
 export default class ListProduct extends Component {
     constructor(props) {
@@ -160,7 +164,7 @@ export default class ListProduct extends Component {
     }
 
     static navigationOptions = {
-        title: 'Products',
+        headerTitle: () => <ListProductHeader/>
     };
     
     handlePress = data => {
@@ -173,6 +177,7 @@ export default class ListProduct extends Component {
         return (
             <ScrollView>
                 <SortBySelling/>
+                <DeliTo/>
                 <View style={styles.listProduct}>
                     <FlatList
                         data={products}
