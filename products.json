@@ -1,0 +1,135 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "name": "Điện thoại VSmart Live (64GB/6GB)",
+            "price": "3.299.000",
+            "oldPrice": "9.000.000",
+            "discount": "58",
+            "listImg": [
+                {
+                    "img": "https://salt.tikicdn.com/cache/w1200/ts/product/33/46/d7/de38fe16b8028324560f8b41b3708a5c.jpg",
+                    "isChosen": true
+                },
+                {
+                    "img": "https://salt.tikicdn.com/cache/w1200/ts/product/08/d6/49/5ff6268ec5a8b4fe2c346166b0725d5d.jpg",
+                    "isChosen": false
+                },
+                {
+                    "img": "https://salt.tikicdn.com/cache/w1200/ts/product/48/c2/b3/c37b23581c7a607bde4bd818a2f15263.jpg",
+                    "isChosen": false
+                },
+                {
+                    "img": "https://salt.tikicdn.com/cache/w1200/ts/product/98/0e/e0/90b2b9ceaebe49fbcc77aff67f79200c.jpg",
+                    "isChosen": false
+                },
+                {
+                    "img": "https://salt.tikicdn.com/cache/w1200/ts/product/1c/12/c7/a6931391a4e22533f86bc96756231f16.jpg",
+                    "isChosen": false
+                }
+            ],
+            "description": "Điện Thoại Vsmart Live với 3 camera đẳng cấp, cảm biến vân tay dưới màn hình cùng hiệu năng xuất sắc, Vsmart Live mang đến cho bạn cuộc sống phong cách và đầy bứt phá.",
+            "comment": 241,
+            "tikinow": true
+        },
+        {
+            "id": 2,
+            "name": "Điện thoại iPhone XS 64GB",
+            "price": "31.490.000",
+            "oldPrice": "90.122.000",
+            "discount": "7",
+            "listImg": [
+                {
+                    "img": "https://salt.tikicdn.com/cache/w1200/ts/product/a1/f0/64/c73c402d793711e287a71df88cfcf937.jpg",
+                    "isChosen": true
+                },
+                {
+                    "img": "https://salt.tikicdn.com/cache/w1200/ts/product/bb/fa/3d/416b50da7733f3c553eb572f32f4eceb.jpg",
+                    "isChosen": false
+                },
+                {
+                    "img": "https://salt.tikicdn.com/cache/w1200/ts/product/c7/d7/b0/21484f7397761bbfac8ff0c673654ed2.jpg",
+                    "isChosen": false
+                },
+                {
+                    "img": "https://salt.tikicdn.com/cache/w1200/ts/product/eb/a6/b5/692b199b03ed6b7c1c41bd3d4c926ac6.jpg",
+                    "isChosen": false
+                },
+                {
+                    "img": "https://salt.tikicdn.com/cache/w1200/ts/product/8b/0e/22/809431206f6eb1be96a6b58d29b4ec17.jpg",
+                    "isChosen": false
+                }
+            ],
+            "description": "Điện thoại iPhone 11 Pro Max là phiên bản cao cấp nhất của iPhone năm nay. Sản phẩm có nhiều cải tiến nổi bật, hiệu năng, thiết kế mới đặc biệt ở phần mặt lưng và hệ thống camera.",
+            "paySup": true,
+            "comment": 63,
+            "tikinow": false
+        },
+        {
+            "id": 3,
+            "name": "Điện thoại Samsung Galaxy M30s (64GB/4GB)",
+            "price": "5.490.000",
+            "oldPrice": "12.212.000",
+            "discount": "21",
+            "listImg": [
+                {
+                    "img": "https://salt.tikicdn.com/cache/w1200/ts/product/df/cc/5d/4438a5f236e0ba89e5a000f60f7e0658.jpg",
+                    "isChosen": true
+                },
+                {
+                    "img": "https://salt.tikicdn.com/cache/w1200/ts/product/91/4a/a0/2a4ac3441654bd49fc6aa7506a63b4cc.jpg",
+                    "isChosen": false
+                },
+                {
+                    "img": "https://salt.tikicdn.com/cache/w1200/ts/product/64/a2/62/327c82a8a931f945f0b0d35644fc7ec0.jpg",
+                    "isChosen": false
+                },
+                {
+                    "img": "https://salt.tikicdn.com/cache/w1200/ts/product/37/7e/31/130e530207fcf385a3e0d24c6d96c43b.jpg",
+                    "isChosen": false
+                },
+                {
+                    "img": "https://salt.tikicdn.com/cache/w1200/ts/product/a8/a3/9b/95920a817dca33530b29609279ac9645.jpg",
+                    "isChosen": false
+                }
+            ],
+            "description": "Samsung Galaxy M30s là chiếc smartphone đầu tiên của Samsung với dung lượng pin 6000mAh giúp bạn  tha hồ sử dụng điện thoại suốt cả ngày dài mà không lo bị gián đoạn vì hết pin.",
+            "paySup": true,
+            "comment": 69,
+            "tikinow": true
+        },
+        {
+            "id": 4,
+            "name": "Điện thoại iPhone 11 Pro Max 64GB",
+            "price": "31.490.000",
+            "oldPrice": "56.120.000",
+            "discount": "7",
+            "listImg": [
+                {
+                    "img": "https://salt.tikicdn.com/cache/w1200/ts/product/a1/f0/64/c73c402d793711e287a71df88cfcf937.jpg",
+                    "isChosen": true
+                },
+                {
+                    "img": "https://salt.tikicdn.com/cache/w1200/ts/product/bb/fa/3d/416b50da7733f3c553eb572f32f4eceb.jpg",
+                    "isChosen": false
+                },
+                {
+                    "img": "https://salt.tikicdn.com/cache/w1200/ts/product/c7/d7/b0/21484f7397761bbfac8ff0c673654ed2.jpg",
+                    "isChosen": false
+                },
+                {
+                    "img": "https://salt.tikicdn.com/cache/w1200/ts/product/eb/a6/b5/692b199b03ed6b7c1c41bd3d4c926ac6.jpg",
+                    "isChosen": false
+                },
+                {
+                    "img": "https://salt.tikicdn.com/cache/w1200/ts/product/8b/0e/22/809431206f6eb1be96a6b58d29b4ec17.jpg",
+                    "isChosen": false
+                }
+            ],
+            "description": "Điện thoại iPhone 11 Pro Max là phiên bản cao cấp nhất của iPhone năm nay. Sản phẩm có nhiều cải tiến nổi bật, hiệu năng, thiết kế mới đặc biệt ở phần mặt lưng và hệ thống camera.",
+            "paySup": true,
+            "comment": 63,
+            "tikinow": true
+        }
+    ]
+}

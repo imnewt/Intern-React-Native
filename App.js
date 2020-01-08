@@ -1,5 +1,4 @@
 import Login from './components/Login'
-import Profile from "./screens/Profile"
 import AuthLoadingScreen from "./screens/AuthLoadingScreen"
 import ListProduct from './screens/ListProduct'
 import PhoneDetail from './screens/PhoneDetail'
@@ -15,13 +14,12 @@ export default createAppContainer(
   createStackNavigator(
     {
       AuthLoading: AuthLoadingScreen,
-      App: Profile,
+      App: ListProduct,
       Auth: Login,
-      Products: ListProduct,
       PhoneDetail: PhoneDetail
     },
     {
-      initialRouteName: 'Products',
+      initialRouteName: 'AuthLoading',
     }
   )
 );

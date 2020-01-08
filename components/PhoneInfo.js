@@ -7,6 +7,9 @@ import Star from "../images/star.png"
 export default class PhoneInfo extends Component {
     constructor(props) {
         super(props);
+        this.state ={
+            test: Tiki
+        }
     }
 
     static navigationOptions = {
@@ -21,10 +24,10 @@ export default class PhoneInfo extends Component {
                 onPress={() => handlePress(data)}
                 >
                 <View style={styles.imgContainer}>
-                    <Image resizeMode="stretch" style={styles.phoneImg} source={data.listImg[0].img} />
+                    <Image resizeMode="stretch" style={styles.phoneImg} source={{uri: data.listImg[0].img}}/>
                 </View>
                 <View style={styles.infoContainer}>
-                    <Image resizeMode="stretch" style={styles.tikiNow} source={Tiki}/>
+                    { data.tikinow && <Image resizeMode="stretch" style={styles.tikiNow} source={Tiki}/>}
                     <Text style={styles.phoneName}>{data.name} - Hàng chính hãng</Text>
                     <View style={styles.phonePriceContainer}>
                         <Text style={styles.phonePrice}>{data.price} VNĐ</Text>

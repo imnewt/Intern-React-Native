@@ -47,7 +47,7 @@ export default class PhoneDetail extends Component {
         const { img } = this.state;
         return (
             <ScrollView style={styles.container}>
-                <Image resizeMode="stretch" style={styles.phoneImg} source={img} />
+                <Image resizeMode="stretch" style={styles.phoneImg} source={{uri: img}} />
                 <View style={styles.chooseView}>
                     {
                         data.listImg.map((item,index) => 
@@ -56,7 +56,7 @@ export default class PhoneDetail extends Component {
                                 style={[styles.smImgContainter, item.isChosen && styles.hasBorder]}
                                 onPress={() => this._handlePress(item)}
                             >
-                                <Image style={styles.smImg} source={item.img} />
+                                <Image style={styles.smImg} source={{uri: item.img}} />
                             </TouchableOpacity>)
                     }
                 </View>
@@ -66,7 +66,7 @@ export default class PhoneDetail extends Component {
                         <Text style={styles.pickColor}>CHỌN ></Text>
                     </TouchableOpacity>
                     <View style={styles.nameContainer}>
-                        <Image resizeMode="stretch" style={styles.tikiNow} source={Tiki} />
+                        { data.tikinow && <Image resizeMode="stretch" style={styles.tikiNow} source={Tiki} />}
                         <Text style={styles.phoneName}>{data.name}</Text>
                     </View>
                     <View style={styles.phoneRating}>
@@ -154,12 +154,13 @@ const styles = StyleSheet.create({
         flex: 1,
         marginTop: 5,
         width: 80,
-        height: 25
+        height: 25,
+        marginRight: 15
     },
     phoneName: {
         flex: 4,
         marginTop: 5,
-        marginLeft: 15,
+        //marginLeft: 15,
         fontSize: 22,
         fontWeight: "700"
     },

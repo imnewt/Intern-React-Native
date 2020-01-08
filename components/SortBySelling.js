@@ -7,20 +7,16 @@ import Control from "../images/controls.png"
 export default function() {
     return (
         <View style={styles.container}>
-            <View style={styles.sortCtn}>
-                <TouchableOpacity>
-                    <Image style={styles.icon} source={DSort}/>
-                </TouchableOpacity>
+            <TouchableOpacity style={styles.sortCtn}>
+                <Image style={styles.icon} source={DSort}/>
                 <Text style={styles.sortText}>Sắp xếp:
                     <Text style={styles.textBlue}> Bán chạy</Text>
                 </Text>
-            </View>
-            <View style={styles.controlCtn}>
-                <TouchableOpacity>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.controlCtn}>
                     <Image style={styles.icon} source={Control}/>
-                </TouchableOpacity>
-                <Text style={styles.controlText}>Lọc</Text>
-            </View>
+                    <Text style={styles.controlText}>Lọc</Text>
+            </TouchableOpacity>
         </View>
     )
 }
