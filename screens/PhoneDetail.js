@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text, Image, ScrollView, StyleSheet, Button, TouchableOpacity, FlatList } from "react-native"
+import { View, Text, Image, ScrollView, StyleSheet, Button, TouchableOpacity} from "react-native"
 
 import Tiki from "../images/tiki-now.png"
 import Star from "../images/star.png"
@@ -8,7 +8,9 @@ export default class PhoneDetail extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            //hasBorder: true
+            listImg: [
+                
+            ]
         }
     }
 
@@ -16,15 +18,16 @@ export default class PhoneDetail extends Component {
         title: 'Phone',
     }
 
-    _handlePress(img) {
-        // if (this.state.hasBorder) {
-        //     this.setState({
-        //         border: !border
-        //     })
-        // }
+    _handlePress(item) {
+        const tempList = this.state.listImg;
+        const itemInList = tempList.find(img => img.img === item.img)
+        if(!itemInList.isChosen) {
+            tempList.map(img => img.isChosen = false)
+            itemInList.isChosen = true
+        }
         this.setState({
-            img: img,
-            //border: !border
+            listImg: tempList,
+            img: item.img,
         })
     }
 
@@ -32,7 +35,8 @@ export default class PhoneDetail extends Component {
         const { navigation } = this.props;
         const data = navigation.getParam("data");
         this.setState({
-            img: data.listImg[0]
+            listImg: data.listImg,
+            img: data.listImg[0].img
         })
     }
 
@@ -44,30 +48,15 @@ export default class PhoneDetail extends Component {
         return (
             <ScrollView style={styles.container}>
                 <Image resizeMode="stretch" style={styles.phoneImg} source={img} />
-                {/* <View style={styles.chooseView}>
-                    <FlatList 
-                        horizontal={true}
-                        data={data.listImg}
-                        renderItem={({ item }) =>
-                                <TouchableOpacity
-                                    style={styles.smImgContainter}
-                                    onPress={() => this._handlePress(item)}
-                                >
-                                    <Image style={styles.smImg} source={item} />
-                                </TouchableOpacity>
-                            }
-                        keyExtractor={(item) => `${item}`}
-                    /> 
-                </View> */}
                 <View style={styles.chooseView}>
                     {
-                        data.listImg.map((img,index) => 
+                        data.listImg.map((item,index) => 
                             <TouchableOpacity
                                 key={index}
-                                style={[styles.smImgContainter, this.state.border && {borderWidth: 1, borderColor: "red"} ]}
-                                onPress={() => this._handlePress(img)}
+                                style={[styles.smImgContainter, item.isChosen && styles.hasBorder]}
+                                onPress={() => this._handlePress(item)}
                             >
-                                <Image style={styles.smImg} source={img} />
+                                <Image style={styles.smImg} source={item.img} />
                             </TouchableOpacity>)
                     }
                 </View>
@@ -122,9 +111,9 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "space-between",
     },
-    smImgContainter: {
-        // marginLeft: 15,
-        // marginRight: 15
+    hasBorder: {
+        borderColor: "#49515a",
+        borderWidth: 1
     },
     smImg: {
         width: 48,

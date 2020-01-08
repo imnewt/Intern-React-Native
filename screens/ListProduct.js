@@ -23,7 +23,28 @@ export default class ListProduct extends Component {
                     price: "3.299.000",
                     oldPrice: "9.000.000",
                     discount: "58",
-                    listImg: [Vsmart,VsmartF,VsmartB,VsmartTB,VsmartLR],
+                    listImg: [
+                        {
+                            img: Vsmart,
+                            isChosen: true
+                        },
+                        {
+                            img: VsmartF,
+                            isChosen: false
+                        },
+                        {
+                            img: VsmartB,
+                            isChosen: false
+                        },
+                        {
+                            img: VsmartTB,
+                            isChosen: false
+                        },
+                        {
+                            img: VsmartLR,
+                            isChosen: false
+                        }
+                    ],
                     //img: Vsmart,
                     description: "Điện Thoại Vsmart Live với 3 camera đẳng cấp, cảm biến vân tay dưới màn hình cùng hiệu năng xuất sắc, Vsmart Live mang đến cho bạn cuộc sống phong cách và đầy bứt phá.",
                     comment: 241,
