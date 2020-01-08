@@ -111,6 +111,9 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "space-between",
     },
+    smImgContainter: {
+        padding: 5
+    },
     hasBorder: {
         borderColor: "#49515a",
         borderWidth: 1

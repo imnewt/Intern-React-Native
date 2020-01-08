@@ -2,15 +2,26 @@ import React, { Component } from 'react'
 import { View, StyleSheet } from "react-native"
 import { FlatList } from 'react-native-gesture-handler';
 
+import SortBySelling from '../components/SortBySelling';
 import PhoneInfo from '../components/PhoneInfo';
 
 import Vsmart from '../images/vsmart.jpg';
 import VsmartF from '../images/vsmart-front.jpg';
 import VsmartB from '../images/vsmart-behind.jpg';
-import VsmartTB from '../images/vsmart-tb.jpg';
+import VsmartS from '../images/vsmart-side.jpg';
 import VsmartLR from '../images/vsmart-lr.jpg';
+
 import IPhone from '../images/iphone.jpg';
+import IPhoneF from '../images/iphone-front.jpg';
+import IPhoneB from '../images/iphone-behind.jpg';
+import IPhoneS from '../images/iphone-side.jpg';
+import IPhoneLR from '../images/iphone-lr.jpg';
+
 import Samsung from '../images/samsung.jpg';
+import SamsungF from '../images/samsung-front.jpg';
+import SamsungB from '../images/samsung-behind.jpg';
+import SamsungS from '../images/samsung-side.jpg';
+import SamsungLR from '../images/samsung-lr.jpg';
 
 export default class ListProduct extends Component {
     constructor(props) {
@@ -37,7 +48,7 @@ export default class ListProduct extends Component {
                             isChosen: false
                         },
                         {
-                            img: VsmartTB,
+                            img: VsmartS,
                             isChosen: false
                         },
                         {
@@ -45,22 +56,37 @@ export default class ListProduct extends Component {
                             isChosen: false
                         }
                     ],
-                    //img: Vsmart,
                     description: "Điện Thoại Vsmart Live với 3 camera đẳng cấp, cảm biến vân tay dưới màn hình cùng hiệu năng xuất sắc, Vsmart Live mang đến cho bạn cuộc sống phong cách và đầy bứt phá.",
                     comment: 241,
-                    //imgFront: VsmartF,
-                    //imgBehind: VsmartB,
-                    //imgTB: VsmartTB,
-                    //imgLR: VsmartLR
                 },
                 {
                     id: 2,
-                    name: "Điện thoại iPhone 11 Pro Max 64GB",
+                    name: "Điện thoại iPhone XS 64GB",
                     price: "31.490.000",
                     oldPrice: "90.122.000",
                     discount: "7",
-                    //img: IPhone,
-                    listImg: [Vsmart,VsmartF,VsmartB,VsmartTB,VsmartLR],
+                    listImg: [
+                        {
+                            img: IPhone,
+                            isChosen: true
+                        },
+                        {
+                            img: IPhoneF,
+                            isChosen: false
+                        },
+                        {
+                            img: IPhoneB,
+                            isChosen: false
+                        },
+                        {
+                            img: IPhoneS,
+                            isChosen: false
+                        },
+                        {
+                            img: IPhoneLR,
+                            isChosen: false
+                        }
+                    ],
                     description: "Điện thoại iPhone 11 Pro Max là phiên bản cao cấp nhất của iPhone năm nay. Sản phẩm có nhiều cải tiến nổi bật, hiệu năng, thiết kế mới đặc biệt ở phần mặt lưng và hệ thống camera.",
                     paySup: true,
                     comment: 63
@@ -71,8 +97,28 @@ export default class ListProduct extends Component {
                     price: "5.490.000",
                     oldPrice: "12.212.000",
                     discount: "21",
-                    //img: Samsung,
-                    listImg: [Vsmart,VsmartF,VsmartB,VsmartTB,VsmartLR],
+                    listImg: [
+                        {
+                            img: Samsung,
+                            isChosen: true
+                        },
+                        {
+                            img: SamsungF,
+                            isChosen: false
+                        },
+                        {
+                            img: SamsungB,
+                            isChosen: false
+                        },
+                        {
+                            img: SamsungS,
+                            isChosen: false
+                        },
+                        {
+                            img: SamsungLR,
+                            isChosen: false
+                        }
+                    ],
                     description: "Samsung Galaxy M30s là chiếc smartphone đầu tiên của Samsung với dung lượng pin 6000mAh giúp bạn  tha hồ sử dụng điện thoại suốt cả ngày dài mà không lo bị gián đoạn vì hết pin.",
                     paySup: true,
                     comment: 69
@@ -83,8 +129,28 @@ export default class ListProduct extends Component {
                     price: "31.490.000",
                     oldPrice: "56.120.000",
                     discount: "7",
-                    //img: IPhone,
-                    listImg: [Vsmart,VsmartF,VsmartB,VsmartTB,VsmartLR],
+                    listImg: [
+                        {
+                            img: IPhone,
+                            isChosen: true
+                        },
+                        {
+                            img: IPhoneF,
+                            isChosen: false
+                        },
+                        {
+                            img: IPhoneB,
+                            isChosen: false
+                        },
+                        {
+                            img: IPhoneS,
+                            isChosen: false
+                        },
+                        {
+                            img: IPhoneLR,
+                            isChosen: false
+                        }
+                    ],
                     description: "Điện thoại iPhone 11 Pro Max là phiên bản cao cấp nhất của iPhone năm nay. Sản phẩm có nhiều cải tiến nổi bật, hiệu năng, thiết kế mới đặc biệt ở phần mặt lưng và hệ thống camera.",
                     paySup: true,
                     comment: 63
@@ -99,13 +165,13 @@ export default class ListProduct extends Component {
     
     handlePress = data => {
         const { navigate } = this.props.navigation;
-        //console.log(data);
         navigate("PhoneDetail", {data: data})
     }
     
     render() {
         const { products } = this.state;
         return (
+            // <SortBySelling/>
             <View style={styles.listProduct}>
                 <FlatList
                     data={products}

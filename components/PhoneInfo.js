@@ -67,7 +67,8 @@ const styles = StyleSheet.create({
         flex: 1
     },
     phoneImg: {
-        width: "100%"
+        width: "100%",
+        height: "100%"
     },
     infoContainer: {
         flex: 1.5
