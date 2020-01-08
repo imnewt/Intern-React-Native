@@ -100,36 +100,36 @@
         },
         {
             "id": 4,
-            "name": "Điện thoại iPhone 11 Pro Max 64GB",
-            "price": "31.490.000",
-            "oldPrice": "56.120.000",
-            "discount": "7",
+            "name": "Điện Thoại Xiaomi Mi 9 Lite (Mi CC9 Global Version) (6GB / 64GB)",
+            "price": "4.989.000",
+            "oldPrice": "7.490.000",
+            "discount": "33",
             "listImg": [
                 {
-                    "img": "https://salt.tikicdn.com/cache/w1200/ts/product/a1/f0/64/c73c402d793711e287a71df88cfcf937.jpg",
+                    "img": "https://salt.tikicdn.com/cache/w1200/ts/product/44/b0/8a/5c398fff0300666cec208ab773ea5d6e.jpg",
                     "isChosen": true
                 },
                 {
-                    "img": "https://salt.tikicdn.com/cache/w1200/ts/product/bb/fa/3d/416b50da7733f3c553eb572f32f4eceb.jpg",
+                    "img": "https://salt.tikicdn.com/cache/w1200/ts/product/29/fe/49/5120789c516e949279e5cf2ffe9cc6da.jpg",
                     "isChosen": false
                 },
                 {
-                    "img": "https://salt.tikicdn.com/cache/w1200/ts/product/c7/d7/b0/21484f7397761bbfac8ff0c673654ed2.jpg",
+                    "img": "https://salt.tikicdn.com/cache/w1200/ts/product/cc/a4/ed/de20142c0235f0ff73437a0c2f4b0750.jpg",
                     "isChosen": false
                 },
                 {
-                    "img": "https://salt.tikicdn.com/cache/w1200/ts/product/eb/a6/b5/692b199b03ed6b7c1c41bd3d4c926ac6.jpg",
+                    "img": "https://salt.tikicdn.com/cache/w1200/ts/product/84/19/71/f8045794fadc749012ec6648174ba4bf.jpg",
                     "isChosen": false
                 },
                 {
-                    "img": "https://salt.tikicdn.com/cache/w1200/ts/product/8b/0e/22/809431206f6eb1be96a6b58d29b4ec17.jpg",
+                    "img": "https://salt.tikicdn.com/cache/w1200/ts/product/7b/9f/2a/8a59196dc2acf7be5a84180d5b71374e.jpg",
                     "isChosen": false
                 }
             ],
-            "description": "Điện thoại iPhone 11 Pro Max là phiên bản cao cấp nhất của iPhone năm nay. Sản phẩm có nhiều cải tiến nổi bật, hiệu năng, thiết kế mới đặc biệt ở phần mặt lưng và hệ thống camera.",
-            "paySup": true,
-            "comment": 63,
-            "tikinow": true
+            "description": "Điện Thoại Xiaomi Mi 9 Lite có thiết kế tinh tế, cao cấp và sang trọng đến từng đường nét khi được chế tác từ kính gradient như người anh em Mi 8 Lite. Phần lưng kính cong cho trải nghiệm cầm nắm chắc chắn và đầy phong cách. Đồng thời, phần khung kim loại chắc chắn giúp chúng ta có được một chiếc điện thoại bền vững, yên tâm hơn khi sử dụng.",
+            "paySup": false,
+            "comment": 78,
+            "tikinow": false
         }
     ]
 }

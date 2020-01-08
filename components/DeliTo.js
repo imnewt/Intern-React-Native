@@ -1,15 +1,10 @@
 import React, { Component } from "react"
 import { View, Image, Text, StyleSheet, TouchableOpacity, CheckBox } from "react-native"
-//import CheckBox from 'react-native-check-box'
 
 import Location from "../images/location.png"
 import Tiki from "../images/tiki-now.png"
 
 export default class DeliTo extends Component {
-
-    // state = {
-    //     isChecked: false
-    // }
     
     render() {
         const { isChecked, handleCBValueChange } = this.props;

@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { View, Text, Image, ScrollView, StyleSheet, Button, TouchableOpacity} from "react-native"
 
+import PhoneDetailHeader from "../components/PhoneDetailHeader"
+
 import Tiki from "../images/tiki-now.png"
 import Star from "../images/star.png"
 
@@ -15,8 +17,11 @@ export default class PhoneDetail extends Component {
     }
 
     static navigationOptions = {
-        title: 'Phone',
-    }
+        headerStyle: {
+            backgroundColor: '#189eff',
+        },
+        headerTitle: () => <PhoneDetailHeader/>
+    };
 
     _handlePress(item) {
         const tempList = this.state.listImg;

@@ -3,12 +3,8 @@ import AuthLoadingScreen from "./screens/AuthLoadingScreen"
 import ListProduct from './screens/ListProduct'
 import PhoneDetail from './screens/PhoneDetail'
 
-import { createAppContainer, createSwitchNavigator } from 'react-navigation';
+import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
-
-
-// const AppStack = createStackNavigator({ Home: Profile });
-// const AuthStack = createStackNavigator({ Login: Login });
 
 export default createAppContainer(
   createStackNavigator(

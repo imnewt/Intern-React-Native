@@ -7,7 +7,7 @@ import SortBySelling from '../components/SortBySelling'
 import DeliTo from "../components/DeliTo" 
 import PhoneInfo from '../components/PhoneInfo'
 
-const db = require("../products.json")
+const db = require("../db.json")
 
 export default class ListProduct extends Component {
     constructor(props) {

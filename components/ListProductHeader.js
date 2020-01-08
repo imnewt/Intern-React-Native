@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { View, Text, Image, StyleSheet, TextInput, TouchableOpacity } from "react-native"
+import { View, Image, StyleSheet, TextInput, TouchableOpacity } from "react-native"
 
 import Find from "../images/find.png"
 import Cart from "../images/shopping-cart.png"
