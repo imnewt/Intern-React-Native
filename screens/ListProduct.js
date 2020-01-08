@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { View, StyleSheet } from "react-native"
-import { FlatList } from 'react-native-gesture-handler';
+import { FlatList, ScrollView } from 'react-native-gesture-handler';
 
 import SortBySelling from '../components/SortBySelling';
 import PhoneInfo from '../components/PhoneInfo';
@@ -171,14 +171,16 @@ export default class ListProduct extends Component {
     render() {
         const { products } = this.state;
         return (
-            // <SortBySelling/>
-            <View style={styles.listProduct}>
-                <FlatList
-                    data={products}
-                    renderItem={({ item }) => <PhoneInfo data={item} handlePress={this.handlePress}/>}
-                    keyExtractor={(item) => `${item.id}`}
-                />
-            </View>
+            <ScrollView>
+                <SortBySelling/>
+                <View style={styles.listProduct}>
+                    <FlatList
+                        data={products}
+                        renderItem={({ item }) => <PhoneInfo data={item} handlePress={this.handlePress}/>}
+                        keyExtractor={(item) => `${item.id}`}
+                    />
+                </View>
+            </ScrollView>
         )
     }
 }

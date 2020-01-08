@@ -1,19 +1,58 @@
 import React from "react"
-import { View, Image, Text } from "react-native"
+import { View, Image, Text, StyleSheet, TouchableOpacity } from "react-native"
 
-import DSort from "../images/descending-sort.png"
+import DSort from "../images/order.png"
+import Control from "../images/controls.png"
 
 export default function() {
     return (
-        <View>
-            <View>
-                <Image source={DSort}/>
-                <Text></Text>
+        <View style={styles.container}>
+            <View style={styles.sortCtn}>
+                <TouchableOpacity>
+                    <Image style={styles.icon} source={DSort}/>
+                </TouchableOpacity>
+                <Text style={styles.sortText}>Sắp xếp:
+                    <Text style={styles.textBlue}> Bán chạy</Text>
+                </Text>
             </View>
-            <View>
-                <Image/>
-                <Text></Text>
+            <View style={styles.controlCtn}>
+                <TouchableOpacity>
+                    <Image style={styles.icon} source={Control}/>
+                </TouchableOpacity>
+                <Text style={styles.ControlText}>Lọc</Text>
             </View>
         </View>
     )
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flexDirection: "row",
+        justifyContent: "space-between",
+        borderBottomWidth: 1,
+        borderBottomColor: "#ddd",
+        padding: 15
+    },
+    icon: {
+        width: 28,
+        height: 28,
+        marginRight: 10
+    },
+    sortCtn: {
+        flexDirection: "row",
+        alignItems: "center"
+    },
+    sortText: {
+        fontSize: 17
+    },
+    textBlue: {
+        color: "#189eff",
+    },
+    controlCtn: {
+        flexDirection: "row",
+        alignItems: "center"
+    },
+    ControlText: {
+        fontSize: 17
+    }
+})
