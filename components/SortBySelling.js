@@ -19,7 +19,7 @@ export default function() {
                 <TouchableOpacity>
                     <Image style={styles.icon} source={Control}/>
                 </TouchableOpacity>
-                <Text style={styles.ControlText}>Lọc</Text>
+                <Text style={styles.controlText}>Lọc</Text>
             </View>
         </View>
     )
@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         alignItems: "center"
     },
-    ControlText: {
+    controlText: {
         fontSize: 17
     }
 })
