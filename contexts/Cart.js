@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { AsyncStorage } from "react-native"
 
 export const CartContext = React.createContext();
 
@@ -15,22 +16,23 @@ export class CartProvider extends Component {
     this.decrease = this.decrease.bind(this);
   }
 
-  addToCart(product) {
+  addToCart = async (product) => {
     let check = this.state.cartItems.find(item => item.id === product.id);
     if(!check) {
-        const productWithQuantity = { ...product, quantity: 1 };
-        this.setState({
-            cartItems: [...this.state.cartItems, productWithQuantity],
-            total: this.state.total + 1,
-            money: this.state.money += parseFloat(product.price.split('.').join(''))
-        });
+      const productWithQuantity = { ...product, quantity: 1 };
+      this.setState({
+          cartItems: [...this.state.cartItems, productWithQuantity],
+          total: this.state.total + 1,
+          money: this.state.money += parseFloat(product.price.split('.').join(''))
+      });
+      //this._saveDataToAsyncStorage(this.state.cartItems, this.state.total, this.state.money);
     } else {
         this.increase(product);
     }
   }
 
-  increase(product) {
-    this.setState({
+  increase = async (product) => {
+    await this.setState({
         cartItems: this.state.cartItems.map(item => {
             if (item.id === product.id) {
               item.quantity = item.quantity + 1;
@@ -40,11 +42,13 @@ export class CartProvider extends Component {
         total: this.state.total + 1,
         money: this.state.money += parseFloat(product.price.split('.').join(''))
     });
+    //console.log(typeof JSON.stringify(this.state.cartItems))
+    await this._saveDataToAsyncStorage(this.state.cartItems, this.state.total, this.state.money);
   }
 
-  decrease(product) {
+  decrease = async (product) => {
     if (product.quantity > 1) {
-      this.setState({
+      await this.setState({
         cartItems: this.state.cartItems.map(item => {
           if (item.id === product.id) {
             item.quantity = item.quantity - 1;
@@ -54,14 +58,37 @@ export class CartProvider extends Component {
         total: this.state.total - 1,
         money: this.state.money -= parseFloat(product.price.split('.').join(''))
       });
+      await this._saveDataToAsyncStorage(this.state.cartItems, this.state.total, this.state.money);
     }
     else {
-      this.setState({
+      await this.setState({
         cartItems: this.state.cartItems.filter(item => item.id !== product.id),
         total: this.state.total - 1,
         money: this.state.money -= parseFloat(product.price.split('.').join(''))
       })
+      await this._saveDataToAsyncStorage(this.state.cartItems, this.state.total, this.state.money);
     }
+  }
+
+  _saveDataToAsyncStorage = async (cartItems, total, money) => {
+    await AsyncStorage.setItem('cartItems', JSON.stringify(cartItems));
+    await AsyncStorage.setItem('total', JSON.stringify(total));
+    await AsyncStorage.setItem('money', JSON.stringify(money));
+  }
+
+  _getDataFromAsyncStorage = async () => {
+      const cartItems = await AsyncStorage.getItem('cartItems');
+      const total = await AsyncStorage.getItem('total');
+      const money = await AsyncStorage.getItem('money');
+      await this.setState({
+        cartItems: JSON.parse(cartItems) || [],
+        total: Number(total) || 0,
+        money: Number(money)
+      })
+  }
+
+  componentDidMount() {
+    this._getDataFromAsyncStorage();
   }
 
   render() {
