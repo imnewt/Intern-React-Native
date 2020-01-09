@@ -12,18 +12,25 @@ export default class PhoneDetail extends Component {
         this.state = {
             listImg: [
                 
-            ]
+            ],
+            count: 0
         }
     }
 
-    static navigationOptions = {
-        headerStyle: {
-            backgroundColor: '#189eff',
-        },
-        headerTitle: () => <PhoneDetailHeader/>
+    static navigationOptions = ({ navigation }) => {
+        return {
+            headerStyle: {
+                backgroundColor: '#189eff',
+            },
+            headerTitle: () => 
+                <PhoneDetailHeader 
+                    moveToCart={navigation.getParam('_moveToCart')} 
+                    count={navigation.getParam('count')}
+                />
+        };
     };
 
-    _handlePress(item) {
+    _handlePressView(item) {
         const tempList = this.state.listImg;
         const itemInList = tempList.find(img => img.img === item.img)
         if(!itemInList.isChosen) {
@@ -36,6 +43,21 @@ export default class PhoneDetail extends Component {
         })
     }
 
+    _increaseCount = async () => {
+        await this.setState({ count: this.state.count + 1 });
+        const { navigation } = this.props;
+        navigation.setParams({ count: this.state.count });
+    };
+
+    _addToCart = () => {
+
+    }
+
+    _moveToCart = () => {
+        const { navigation } = this.props;
+        navigation.navigate("Cart");
+    }
+
     componentDidMount  = () => {
         const { navigation } = this.props;
         const data = navigation.getParam("data");
@@ -43,10 +65,10 @@ export default class PhoneDetail extends Component {
             listImg: data.listImg,
             img: data.listImg[0].img
         })
+        navigation.setParams({ _moveToCart: this._moveToCart, _increaseCount: this._increaseCount });
     }
 
     render() {
-       
         const { navigation } = this.props;
         const data = navigation.getParam("data");
         const { img } = this.state;
@@ -59,7 +81,7 @@ export default class PhoneDetail extends Component {
                             <TouchableOpacity
                                 key={index}
                                 style={[styles.smImgContainter, item.isChosen && styles.hasBorder]}
-                                onPress={() => this._handlePress(item)}
+                                onPress={() => this._handlePressView(item)}
                             >
                                 <Image style={styles.smImg} source={{uri: item.img}} />
                             </TouchableOpacity>)
@@ -93,6 +115,7 @@ export default class PhoneDetail extends Component {
                     <Button 
                         title="Chọn mua"
                         color="red"
+                        onPress={this._increaseCount}
                     />
                     <Text style={styles.text}>{data.description}</Text>
                 </View>
@@ -109,7 +132,7 @@ const styles = StyleSheet.create({
     },
     phoneImg: {
         width: "100%",
-        height: 500
+        height: 400
     },
     chooseView: {
         flexDirection: "row",
@@ -213,5 +236,17 @@ const styles = StyleSheet.create({
     text: {
         marginTop: 10,
         fontSize: 16
-    }
+    },
+    header: {
+        flex: 1,
+        flexDirection: "row",
+        justifyContent: "flex-end",
+        marginLeft: 15,
+        marginRight: 15
+    },
+    headerIcon: {
+        width: 28,
+        height: 28,
+        marginRight: 15
+    } 
 })
