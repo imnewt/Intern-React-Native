@@ -25,7 +25,7 @@ export class CartProvider extends Component {
           total: this.state.total + 1,
           money: this.state.money += parseFloat(product.price.split('.').join(''))
       });
-      //this._saveDataToAsyncStorage(this.state.cartItems, this.state.total, this.state.money);
+      this._saveDataToAsyncStorage(this.state.cartItems, this.state.total, this.state.money);
     } else {
         this.increase(product);
     }
@@ -42,7 +42,6 @@ export class CartProvider extends Component {
         total: this.state.total + 1,
         money: this.state.money += parseFloat(product.price.split('.').join(''))
     });
-    //console.log(typeof JSON.stringify(this.state.cartItems))
     await this._saveDataToAsyncStorage(this.state.cartItems, this.state.total, this.state.money);
   }
 
