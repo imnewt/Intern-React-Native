@@ -6,14 +6,13 @@ import PhoneDetailHeader from "../components/PhoneDetailHeader"
 import Tiki from "../images/tiki-now.png"
 import Star from "../images/star.png"
 
+import { CartContext } from "../contexts/Cart"
+
 export default class PhoneDetail extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            listImg: [
-                
-            ],
-            count: 0
+            listImg: []
         }
     }
 
@@ -24,8 +23,7 @@ export default class PhoneDetail extends Component {
             },
             headerTitle: () => 
                 <PhoneDetailHeader 
-                    moveToCart={navigation.getParam('_moveToCart')} 
-                    count={navigation.getParam('count')}
+                    moveToCart={navigation.getParam('_moveToCart')}
                 />
         };
     };
@@ -43,19 +41,13 @@ export default class PhoneDetail extends Component {
         })
     }
 
-    _increaseCount = async () => {
-        await this.setState({ count: this.state.count + 1 });
-        const { navigation } = this.props;
-        navigation.setParams({ count: this.state.count });
-    };
-
     _addToCart = () => {
-
+ 
     }
 
     _moveToCart = () => {
         const { navigation } = this.props;
-        navigation.navigate("Cart");
+        navigation.navigate("CartScreen");
     }
 
     componentDidMount  = () => {
@@ -112,11 +104,15 @@ export default class PhoneDetail extends Component {
                         <Text style={styles.phoneDiscount}>-{data.discount}%</Text>
                     </View>
                     <Text style={styles.fastDeli}>>> GIAO NHANH 2H</Text>
-                    <Button 
-                        title="Chọn mua"
-                        color="red"
-                        onPress={this._increaseCount}
-                    />
+                    <CartContext.Consumer>
+                        {({ addToCart }) => (
+                            <Button
+                                title="Chọn mua"
+                                color="red" 
+                                onPress={() => addToCart(data)}>
+                            </Button>
+                        )}
+                    </CartContext.Consumer>
                     <Text style={styles.text}>{data.description}</Text>
                 </View>
             </ScrollView>
@@ -151,8 +147,6 @@ const styles = StyleSheet.create({
         height: 48
     },
     phoneInfo: {
-        // marginLeft: 15,
-        // marginRight: 15
     },
     colorPicker: {
         marginTop: 10,
@@ -188,7 +182,6 @@ const styles = StyleSheet.create({
     phoneName: {
         flex: 4,
         marginTop: 5,
-        //marginLeft: 15,
         fontSize: 22,
         fontWeight: "700"
     },

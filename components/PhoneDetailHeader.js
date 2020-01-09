@@ -6,18 +6,11 @@ import Home from "../images/home.png"
 import Cart from "../images/shopping-cart.png"
 import More from "../images/more-options.png"
 
-export default class PhoneDetailHeader extends Component {
-    constructor(props) {
-        super(props);
-        this.state ={
-            //nums: 0
-        }
-    }
+import { CartContext } from "../contexts/Cart"
 
+export default class PhoneDetailHeader extends Component {
     render() {
-        //const { nums } = this.state;
-        const { moveToCart, count } = this.props;
-        console.log(count);
+        const { moveToCart} = this.props;
         return (
             <View style={styles.container}>
                 <TouchableOpacity>
@@ -30,7 +23,11 @@ export default class PhoneDetailHeader extends Component {
                     style={styles.cartBtn}
                     onPress={moveToCart}>
                         <Image style={styles.icon} source={Cart} />
-                        <Text style={styles.nums}>{count || 0}</Text>
+                        <CartContext.Consumer>
+                            {({ cartItems }) => (
+                                <Text style={styles.nums}>{cartItems.length}</Text>
+                            )}
+                        </CartContext.Consumer>
                 </TouchableOpacity>
                 <TouchableOpacity>
                     <Image style={styles.icon} source={More} />

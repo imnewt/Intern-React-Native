@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, StyleSheet } from "react-native"
+import { View, StyleSheet, AsyncStorage } from "react-native"
 import { FlatList, ScrollView } from 'react-native-gesture-handler'
 
 import ListProductHeader from "../components/ListProductHeader"
@@ -18,17 +18,29 @@ export default class ListProduct extends Component {
         }
     }
 
-    static navigationOptions = {
-        headerStyle: {
-            backgroundColor: '#189eff',
-        },
-        headerTitle: () => <ListProductHeader/>
+    static navigationOptions = ({ navigation }) => {
+        return {
+            headerStyle: {
+                backgroundColor: '#189eff',
+            },
+            headerTitle: () => 
+                <ListProductHeader  
+                   moveToCart={navigation.getParam('_moveToCart')}
+                />
+        };
     };
 
-    componentDidMount = async() => {
+    _moveToCart = () => {
+        const { navigation } = this.props;
+        navigation.navigate("CartScreen");
+    }
+
+    componentDidMount = async () => {
         await this.setState({
             products: db.products
         })
+        const { navigation } = this.props;
+        navigation.setParams({ _moveToCart: this._moveToCart, count: this.state.count });
     }
 
     handleCBValueChange = async () => {

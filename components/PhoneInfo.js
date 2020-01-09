@@ -5,17 +5,6 @@ import Tiki from "../images/tiki-now.png"
 import Star from "../images/star.png"
 
 export default class PhoneInfo extends Component {
-    constructor(props) {
-        super(props);
-        this.state ={
-            test: Tiki
-        }
-    }
-
-    static navigationOptions = {
-        title: 'Products',
-    };
-
     render() {
         const { data, handlePress } = this.props;
         return (
