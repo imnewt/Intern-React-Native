@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import { View, StyleSheet, Image, Text, TouchableOpacity } from "react-native"
+import { View, StyleSheet, Image, Text, TouchableOpacity, Button } from "react-native"
 
 export default class CartItem extends Component {
     render() {
-        const { data } = this.props;
+        const { data, increase, decrease } = this.props;
         return (
             <View style={styles.container}>
                 <View style={styles.phoneInfo}>
@@ -16,9 +16,15 @@ export default class CartItem extends Component {
                     </View>
                 </View>
                 <View style={styles.quantityBlock}>
-                    <Text style={styles.decrease}>-</Text>
-                    <Text style={styles.quantity}>Sl</Text>
-                    <Text style={styles.increase}>+</Text>
+                    <Button
+                        title="-" 
+                        onPress={() => decrease(data)}
+                    />
+                    <Text style={styles.quantity}>{data.quantity}</Text>
+                    <Button
+                        title="+" 
+                        onPress={() => increase(data)}
+                    />
                 </View>
             </View>
         )

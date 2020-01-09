@@ -24,8 +24,8 @@ export default class PhoneDetailHeader extends Component {
                     onPress={moveToCart}>
                         <Image style={styles.icon} source={Cart} />
                         <CartContext.Consumer>
-                            {({ cartItems }) => (
-                                <Text style={styles.nums}>{cartItems.length}</Text>
+                            {({ total }) => (
+                                <Text style={styles.nums}>{total}</Text>
                             )}
                         </CartContext.Consumer>
                 </TouchableOpacity>
